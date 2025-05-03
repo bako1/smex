@@ -1,15 +1,16 @@
 backend:
   name: github
-  repo: bako1/smex
-  branch: main
+  repo: bako1/smex # change this if your repo name or username is different
+  branch: main # where your content (e.g., markdown) lives
+  site_domain: bako1.github.io
 
 media_folder: "src/assets/uploads"
-public_folder: "/assets/uploads"
+public_folder: "/smex/assets/uploads"
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "src/assets/content/blog"
+  - name: "pages"
+    label: "Pages"
+    folder: "src/assets/pages"
     create: true
     slug: "{{slug}}"
     fields:
