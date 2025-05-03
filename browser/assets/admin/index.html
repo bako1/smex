@@ -5,45 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Content Manager</title>
 
-    <!-- Load Decap CMS from CDN (Ensure this is the first script loaded) -->
+    <!-- Load Decap CMS from CDN -->
     <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
-
   </head>
   <body>
-    <!-- Manual initialization before CMS script loads -->
-    <script>
-      window.CMS_MANUAL_INIT = true;
-    </script>
-
-    <!-- CMS Container where Decap CMS will be rendered -->
+    <!-- Manual initialization and CMS Container -->
     <div id="decap-cms"></div>
 
-    <!-- Initialize Decap CMS after script has loaded -->
+    <!-- Initialize CMS only after DOM is loaded -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        // Initialize Decap CMS into the 'decap-cms' element
-        CMS.init({
-          el: document.getElementById('decap-cms'),
-          config: {
-            backend: {
-              name: 'github',
-              repo: 'papy/smex',  // Replace with your GitHub repo
-              branch: 'main',     // GitHub branch, usually 'main' or 'master'
-            },
-            collections: [
-              {
-                name: 'posts',      // Replace with your collection name
-                label: 'Posts',
-                folder: 'content/posts', // Folder where your content will be stored
-                create: true,         // Allow new posts to be created
-                fields: [
-                  { label: 'Title', name: 'title', widget: 'string' },
-                  { label: 'Body', name: 'body', widget: 'markdown' }
-                ]
-              }
-            ]
-          }
-        });
+        // Make sure CMS script is loaded
+        if (window.CMS) {
+          window.CMS_MANUAL_INIT = true;  // Optional if using manual initialization
+
+          // Initialize Decap CMS
+          CMS.init({
+            el: document.getElementById('decap-cms'),
+            config: {
+              backend: {
+                name: 'github',
+                repo: 'bako1/smex',  // Replace with your actual repo
+                branch: 'main',     // Replace with your actual branch
+              },
+              collections: [
+                {
+                  name: 'posts',        // Replace with your collection name
+                  label: 'Posts',
+                  folder: 'content/posts', // Folder where your content will be stored
+                  create: true,          // Allow new posts to be created
+                  fields: [
+                    { label: 'Title', name: 'title', widget: 'string' },
+                    { label: 'Body', name: 'body', widget: 'markdown' }
+                  ]
+                }
+              ]
+            }
+          });
+        }
       });
     </script>
   </body>
