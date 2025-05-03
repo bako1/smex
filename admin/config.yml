@@ -1,0 +1,17 @@
+backend:
+  name: github
+  repo: bako1/smex
+  branch: main
+
+media_folder: "src/assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "src/assets/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
