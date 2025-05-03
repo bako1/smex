@@ -1,49 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Content Manager</title>
-
-    <!-- Load Decap CMS from CDN -->
+    <meta charset="utf-8" />
+    <title>Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Load Decap CMS -->
     <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
   </head>
   <body>
-    <!-- Manual initialization and CMS Container -->
-    <div id="decap-cms"></div>
-
-    <!-- Initialize CMS only after DOM is loaded -->
+    <!-- CMS will mount here -->
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // Make sure CMS script is loaded
-        if (window.CMS) {
-          window.CMS_MANUAL_INIT = true;  // Optional if using manual initialization
-
-          // Initialize Decap CMS
-          CMS.init({
-            el: document.getElementById('decap-cms'),
-            config: {
-              backend: {
-                name: 'github',
-                repo: 'bako1/smex',  // Replace with your actual repo
-                branch: 'main',     // Replace with your actual branch
-              },
-              collections: [
-                {
-                  name: 'posts',        // Replace with your collection name
-                  label: 'Posts',
-                  folder: 'content/posts', // Folder where your content will be stored
-                  create: true,          // Allow new posts to be created
-                  fields: [
-                    { label: 'Title', name: 'title', widget: 'string' },
-                    { label: 'Body', name: 'body', widget: 'markdown' }
-                  ]
-                }
-              ]
-            }
-          });
-        }
-      });
+      window.CMS_MANUAL_INIT = false;
+    </script>
+    <script>
+      // Optional: Add config override here
+      // CMS.init({ config: { ... } });
     </script>
   </body>
 </html>
