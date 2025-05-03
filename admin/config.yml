@@ -1,7 +1,7 @@
 backend:
   name: github
-  repo: bako1/smex # change this if your repo name or username is different
-  branch: main # where your content (e.g., markdown) lives
+  repo: bako1/smex
+  branch: main
   site_domain: bako1.github.io
 
 media_folder: "src/assets/uploads"
@@ -16,3 +16,4 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Slug", name: "slug", widget: "string", required: false }
